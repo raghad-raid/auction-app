@@ -1,5 +1,5 @@
 .today-section {
-  background: #36004d; /* أو أي لون تريدينه */
+  background: #36004d; 
   padding: 40px 20px;
   border-radius: 15px;
 }
@@ -52,10 +52,9 @@
   text-align: center;
   backdrop-filter: blur(8px);
 }
-/* تصغير وتصحيح حجم الصور */
 .image-wrapper {
   width: 100%;
-  height: 190px;      /* حجم ثابت لجميع الصور */
+  height: 190px;     
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 12px;
@@ -64,8 +63,8 @@
 .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* مهم جدًا: يجعل الصورة كاملة بدون تمدد */
-  background: white;     /* يعطي خلفية بيضاء نظيفة */
+  object-fit: contain;   
+  background: white;     
   padding: 5px;
   border-radius: 12px;
 }

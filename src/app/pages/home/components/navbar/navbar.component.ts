@@ -12,7 +12,4 @@ import { PagesRoutingModule } from "../../../pages-routing.module";
 export class NavbarComponent {
 searchTerm = '';
 
-  search() {
-    console.log('بحث عن:', this.searchTerm);
-  }
 }

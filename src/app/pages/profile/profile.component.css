@@ -5,15 +5,10 @@
   min-height: 100vh;
 }
 
-/* Breadcrumb */
-.breadcrumb {
-  opacity: 0.7;
-  margin-bottom: 20px;
-}
-
 /* Profile Header */
 .profile-header {
   text-align: center;
+  padding-top: 20px;
 }
 
 .avatar {

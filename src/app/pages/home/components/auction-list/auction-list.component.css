@@ -86,7 +86,6 @@
   align-items:center;
 }
 
-/* price/time */
 .price {
   color: #32ff7e;
   font-weight: 700;
@@ -109,7 +108,6 @@
   transition: width 0.5s ease;
 }
 
-/* place bid button */
 .place-bid-btn {
   background: linear-gradient(90deg,#b06cff,#ff79b1);
   color: #fff;

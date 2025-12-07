@@ -1,0 +1,161 @@
+.register-container {
+  width: 90%;
+  max-width: 950px;
+  margin: 0px auto;
+  color: white;
+  background: #3a0061;
+}
+
+:host {
+  display: block;
+  background: #3a0061 !important;
+}
+
+.title {
+  padding-top: 40px;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.highlight {
+  color: #ff57a8;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.feature {
+  width: 45%;
+  display: flex;
+  margin: 10px 0;
+}
+
+.feature .icon {
+  font-size: 28px;
+  margin-right: 12px;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+
+.stat-box {
+  background: rgba(255,255,255,0.07);
+  padding: 20px;
+  border-radius: 10px;
+  width: 30%;
+  text-align: center;
+}
+
+/* Card */
+.register-wrapper {
+  width: 950px;
+  margin: 60px auto;
+  text-align: center;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  margin-bottom: 25px;
+}
+
+.form input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 15px;
+}
+
+.form input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, #b06cff, #ff79b0);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Divider */
+.divider {
+  margin: 22px 0;
+  opacity: 0.6;
+}
+
+/* Social buttons section */
+.social-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.social {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Google button */
+.google {
+  background: white;
+  color: #333;
+}
+
+/* Facebook button */
+.facebook {
+  background: #1877f2;
+  color: white;
+}
+
+.signin-text {
+  margin-top: 18px;
+  opacity: 0.8;
+}
+
+.signin-text a {
+  color: #ff40c7;
+  cursor: pointer;
+}
