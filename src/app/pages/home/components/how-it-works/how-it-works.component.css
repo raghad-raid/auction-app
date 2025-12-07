@@ -1,0 +1,150 @@
+.how-it-works-section {
+  background: radial-gradient(circle at top, #5c1a85, #3a0061, #24003d);
+  color: white;
+}
+
+/* Main title */
+.section-title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* Step Icons */
+.step-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px;
+  font-size: 28px;
+  color: white;
+}
+
+/* Unique colors */
+.step1 {
+  background: #e05dd3;
+}
+
+.step2 {
+  background: #d13ee5;
+}
+
+.step3 {
+  background: #c63edd;
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.step-text {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Feature cards */
+.features-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.feature-icon {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.feature-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.feature-text {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+
+
+
+.subscribe-section {
+  background: rgba(0, 0, 0, 0); 
+}
+
+.subscribe-box {
+  background: linear-gradient(90deg, #8e2de2, #d53a9d);
+  border-radius: 25px;
+  max-width: 1100px;
+  margin: auto;
+  color: white;
+}
+
+/* Title */
+.subscribe-title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Subtitle */
+.subscribe-text {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* Email input */
+.subscribe-input {
+  width: 350px;
+  border-radius: 50px;
+  padding: 12px 20px;
+  border: none;
+  outline: none;
+}
+
+/* Button */
+.subscribe-btn {
+  background: white;
+  color: #8e2de2;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.subscribe-btn:hover {
+  opacity: 0.85;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .subscribe-form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .subscribe-input {
+    width: 100%;
+  }
+
+  .subscribe-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,87 @@
+.today-section {
+  background: #36004d; /* أو أي لون تريدينه */
+  padding: 40px 20px;
+  border-radius: 15px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.header-row h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.countdown {
+  padding-left: 800px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffcb58;
+}
+
+.view-all {
+  background: #a259ff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.view-all:hover {
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+/* تصغير وتصحيح حجم الصور */
+.image-wrapper {
+  width: 100%;
+  height: 190px;      /* حجم ثابت لجميع الصور */
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* مهم جدًا: يجعل الصورة كاملة بدون تمدد */
+  background: white;     /* يعطي خلفية بيضاء نظيفة */
+  padding: 5px;
+  border-radius: 12px;
+}
+
+.price {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #4fff85;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: #a259ff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

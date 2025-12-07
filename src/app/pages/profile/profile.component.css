@@ -1,0 +1,163 @@
+.profile-container {
+  padding: 20px;
+  color: #fff;
+  background: #1b0c36;
+  min-height: 100vh;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+/* Profile Header */
+.profile-header {
+  text-align: center;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #8237ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 35px;
+}
+
+.email {
+  opacity: 0.7;
+}
+
+/* Menu Section */
+.menu-section {
+  background: #351a5a;
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+.menu-item {
+  background: #2a1550;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 500;
+}
+
+.menu-item:hover{
+    background: linear-gradient(90deg, #b06cff, #ff79b0);
+
+}
+
+
+/* Active Bids */
+.section-title {
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+.active-bids {
+  background: #351a5a;
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.bid-card {
+  background: #2a1550;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bid-card .price {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.badge.winning {
+  background: #5acd7d;
+}
+
+.badge.outbid {
+  background: #ff5c5c;
+}
+
+.badge.won {
+  background: #5c9dff;
+}
+
+/* Right Side */
+.right {
+  text-align: right;
+}
+
+.time-label {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.time {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.btn-action {
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-action.view {
+  background: #8a3cff;
+}
+
+.btn-action.increase {
+  background: #ff8b2d;
+}
+.btn-action.order {
+  background: #8a3cff;
+}
+/* Stats */
+.stats {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.stat-box {
+  background: #2a1550;
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.stat-box h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.stat-box .sub {
+  font-size: 13px;
+  opacity: 0.6;
+}

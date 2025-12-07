@@ -1,0 +1,99 @@
+<div class="profile-container">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <span>Home</span> > <strong>My Account</strong>
+  </div>
+
+  <!-- Profile Header -->
+  <div class="profile-header">
+    <div class="avatar">
+      <i class="bi bi-person"></i>
+    </div>
+    <h2>{{ user.name }}</h2>
+    <p class="email">{{ user.email }}</p>
+  </div>
+
+  <!-- Accordion Menu -->
+  <div class="menu-section">
+    <div class="menu-item active">
+      <i class="bi bi-tag"></i> My Bids
+    </div>
+
+    <div class="menu-item">
+      <i class="bi bi-heart"></i> Saved Items
+    </div>
+
+    <div class="menu-item">
+      <i class="bi bi-trophy"></i> Won Items
+    </div>
+
+    <div class="menu-item">
+      <i class="bi bi-credit-card"></i> Payment Methods
+    </div>
+
+    <div class="menu-item">
+      <i class="bi bi-gear"></i> Settings
+    </div>
+
+    <div class="menu-item">
+      <i class="bi bi-box-arrow-right"></i> Sign Out
+    </div>
+  </div>
+
+  <!-- Active Bids Section -->
+  <h3 class="section-title">My Active Bids</h3>
+
+  <div class="active-bids">
+
+    <div class="bid-card" *ngFor="let bid of activeBids">
+      <div class="left">
+        <h4>{{ bid.title }}</h4>
+        <div class="price">${{ bid.price }}</div>
+        <span class="badge" [ngClass]="bid.status.toLowerCase()">{{ bid.status }}</span>
+      </div>
+
+      <div class="right">
+        <div class="time-label">Time Left</div>
+        <div class="time">{{ bid.timeLeft }}</div>
+
+        <button 
+          class="btn-action"
+          [ngClass]="{
+            'view': bid.action === 'View Item',
+            'increase': bid.action === 'Increase Bid',
+            'order':bid.action ==='View Order'
+          }"
+        >
+          {{ bid.action }}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats">
+
+    <div class="stat-box">
+      <h1>{{ stats.active }}</h1>
+      <p>Active Bids</p>
+      <span class="sub">Currently bidding</span>
+    </div>
+
+    <div class="stat-box">
+      <h1>{{ stats.won }}</h1>
+      <p>Won Auctions</p>
+      <span class="sub">Total wins</span>
+    </div>
+
+    <div class="stat-box">
+      <h1>{{ stats.saved }}</h1>
+      <p>Saved Items</p>
+      <span class="sub">In wishlist</span>
+    </div>
+
+  </div>
+
+</div>
+

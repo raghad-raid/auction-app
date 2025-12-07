@@ -1,0 +1,9 @@
+footer {
+  font-size: 0.95rem;
+}
+app-footer, footer {
+  background: transparent !important;
+  border-top: none !important;
+  margin-top: 0 !important;
+  padding-top: 20px; 
+}
