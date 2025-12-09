@@ -1,0 +1,92 @@
+<div class="product-details-container">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    Home > Browse > <span>{{ product?.title }}</span>
+  </div>
+
+  <!-- Top Section -->
+  <div class="top-section">
+    <div class="live-tag">Live</div>
+    <div class="image-box">
+      <img [src]="product?.image" alt="Product Image" />
+    </div>
+    <div class="actions">
+      <button class="icon-btn">❤️</button>
+    </div>
+  </div>
+
+  <!-- Product Info -->
+  <div class="info-section card">
+    <h1>{{ product?.title }}</h1>
+
+    <div class="meta">
+      <span>👁️ {{ product?.views }} views</span>
+      <span>📦 {{ product?.bids }} bids</span>
+      <span>📍 {{ product?.location }}</span>
+    </div>
+
+    <h3>Description</h3>
+    <p>{{ product?.description }}</p>
+
+    <div class="details-grid">
+      <div>
+        <h4>Condition</h4>
+        <p>{{ product?.condition }}</p>
+      </div>
+
+      <div>
+        <h4>Category</h4>
+        <p>{{ product?.category }}</p>
+      </div>
+
+      <div>
+        <h4>Seller</h4>
+        <p>{{ product?.seller }}</p>
+      </div>
+
+      <div>
+        <h4>Location</h4>
+        <p>{{ product?.location }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bidding Section -->
+  <div class="bid-section card">
+
+    <div class="time-remaining">
+      <h4>Time Remaining</h4>
+      <div class="timer">0 : 0 : 0</div>
+    </div>
+
+    <div class="price-box">
+      <div class="price-row">
+        <span>Current Bid</span>
+        <span class="price green">${{ product?.currentBid }}</span>
+      </div>
+
+      <div class="price-row">
+        <span>Starting Bid</span>
+        <span class="price">${{ product?.startingBid }}</span>
+      </div>
+
+      <div class="price-row">
+        <span>Total Bids</span>
+        <span>{{ product?.bids }}</span>
+      </div>
+    </div>
+
+    <input type="text" class="bid-input" placeholder="Enter bid..." />
+
+    <button class="place-bid-btn">🔨 Place Bid</button>
+    <button class="buy-now-btn">Buy Now: ${{ product?.buyNow }}</button>
+
+    <div class="features">
+      <p>🛡️ Buyer Protection Guarantee</p>
+      <p>🚚 Free Shipping Available</p>
+      <p>✔️ Verified Authentic</p>
+    </div>
+  </div>
+
+</div>
