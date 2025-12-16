@@ -13,11 +13,9 @@
 .page-title {
   font-size: 32px;
   font-weight: 700;
+  padding-bottom: 20px;
 }
 
-.items-count {
-  opacity: 0.8;
-}
 
 /* Categories */
 .cat-btn {
@@ -74,6 +72,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
 /* Live badge */

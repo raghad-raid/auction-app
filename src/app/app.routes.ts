@@ -10,6 +10,6 @@ export const routes: Routes = [
   { path: 'live-auctions', component: LiveAuctionsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent},
-  { path:'product-details', component:ProductDetailsComponent}
+  { path:'product-details/:id', component:ProductDetailsComponent}
 
 ];

@@ -1,26 +1,29 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { AuctionService } from '../../../../services/auction.service';
 
 @Component({
   selector: 'app-today-highlights',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './today-highlights.component.html',
   styleUrl: './today-highlights.component.css'
 })
 export class TodayHighlightsComponent implements OnInit{
-allAuctions = [
-    { id: 1, name: "Luxury Car", image: "/car.jpeg", price: 67000 },
-    { id: 2, name: "Smart Watch", image: "/watch.jpeg", price: 250 },
-    { id: 3, name: "iPhone 15", image: "/iphone.jpeg", price: 999 },
-    { id: 4, name: "Gaming Laptop", image: "/laptop.jpeg", price: 1500 },
-    { id: 5, name: "Designer Bag", image: "/bag.jpeg", price: 400 },
-    { id: 6, name: "Drone X3", image: "/drone.png", price: 650 },
-  ];
 
   todayAuctions: any[] = [];
   countdown: any;
+  items:any[]=[];
+
+   constructor(private router: Router,
+               private auctionService:AuctionService ) {}
+
+    goToDetails(item: any) {
+     this.router.navigate(['/product-details', item.id]);
+  }
 
   ngOnInit(): void {
+    this.items = this.auctionService.getByType('highlight');
     this.loadTodayAuctions();
     this.startCountdown();
   }
@@ -40,7 +43,7 @@ allAuctions = [
     }
 
     // اختيار 4-5 منتجات عشوائية
-    const shuffled = [...this.allAuctions].sort(() => 0.5 - Math.random());
+    const shuffled = [...this.items].sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 4);
 
     // حفظها لليوم

@@ -96,19 +96,16 @@
   color: white;
 }
 
-/* Title */
 .subscribe-title {
   font-size: 32px;
   font-weight: 700;
 }
 
-/* Subtitle */
 .subscribe-text {
   font-size: 15px;
   opacity: 0.9;
 }
 
-/* Email input */
 .subscribe-input {
   width: 350px;
   border-radius: 50px;
@@ -117,7 +114,6 @@
   outline: none;
 }
 
-/* Button */
 .subscribe-btn {
   background: white;
   color: #8e2de2;

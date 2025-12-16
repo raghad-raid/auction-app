@@ -10,7 +10,6 @@
 
   <!-- Page title -->
   <h2 class="page-title">Live Auctions</h2>
-  <p class="items-count mb-4">4 items available</p>
 
   <!-- Filters Row -->
   <div class="filters-row d-flex justify-content-between align-items-center mb-4">
@@ -29,7 +28,7 @@
  <div class="auction-card" *ngFor="let item of items">
   
   <div class="card-top">
-    <img [src]="item.image" alt="{{ item.title }}" class="card-img" />
+    <img [src]="item.image" alt="{{ item.title }}" class="card-img" (click)="goToDetails(item)"/>
 
     <div class="card-top-right">
       <button class="btn-heart"><i class="bi bi-heart"></i></button>

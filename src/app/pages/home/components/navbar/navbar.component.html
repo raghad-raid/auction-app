@@ -24,8 +24,16 @@
         type="text"
         [(ngModel)]="searchTerm"
         placeholder="Search for auctions, items, or categories..."
+        (input)="onSearchChange()"
         class="form-control me-2"
       />
+
+       <!-- Dropdown suggestions -->
+  <ul *ngIf="showDropdown" class="search-dropdown">
+    <li *ngFor="let item of filteredItems" (click)="goToItem(item)" >
+      {{ item.title }}
+    </li>
+  </ul>
     </div>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">

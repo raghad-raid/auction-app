@@ -33,7 +33,7 @@ export class ProfileComponent {
       title: "Limited Edition Sneakers",
       price: 1200,
       status: "Won",
-      timeLeft: "",
+      timeLeft: "1h 33m",
       action: "View Order"
     }
   ];

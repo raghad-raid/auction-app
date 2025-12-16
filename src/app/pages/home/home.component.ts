@@ -18,20 +18,6 @@ import { TodayHighlightsComponent } from "./components/today-highlights/today-hi
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  products: any[] = [];
-  searchTerm: string = '';
-
-  constructor(private auctionService: AuctionService) {}
-
-  ngOnInit(): void {
-    this.search('');
-  }
-
-  search(keyword: string) {
-    this.auctionService.getProducts(keyword).subscribe(data => {
-      this.products = data;
-    });
-  }
+export class HomeComponent  {
 }
 

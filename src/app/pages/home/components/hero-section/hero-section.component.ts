@@ -11,4 +11,11 @@ import { RouterModule } from '@angular/router';
 })
 export class HeroSectionComponent {
  
+  scrollToHowItWorks() {
+  const section = document.getElementById("howItWorks");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
 }

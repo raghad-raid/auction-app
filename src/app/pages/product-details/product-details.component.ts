@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuctionService } from '../../services/auction.service';
 
 @Component({
   selector: 'app-product-details',
@@ -10,12 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailsComponent implements OnInit {
 product:any;
 
-constructor(private route:ActivatedRoute){}
+constructor(private route:ActivatedRoute,
+    private auctionService:AuctionService){}
 
 ngOnInit(): void {
-   this.route.queryParams.subscribe(params => {
-      this.product = JSON.parse(params['data']);
-    });
-}
+   const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.product = this.auctionService.getProductById(id);
+  }
 }
 

@@ -4,8 +4,6 @@
   background: #1b0c36;
   min-height: 100vh;
 }
-
-/* Profile Header */
 .profile-header {
   text-align: center;
   padding-top: 20px;
@@ -27,7 +25,6 @@
   opacity: 0.7;
 }
 
-/* Menu Section */
 .menu-section {
   background: #351a5a;
   padding: 12px;
@@ -116,6 +113,7 @@
 
 .btn-action {
   padding: 7px 14px;
+  width: 130px;
   border-radius: 8px;
   border: none;
   color: #fff;
