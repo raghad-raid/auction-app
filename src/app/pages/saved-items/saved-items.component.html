@@ -1,0 +1,50 @@
+<div class="saved-container">
+
+  <h2 class="page-title">
+    <i class="bi bi-heart-fill"></i> Saved Items
+  </h2>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="savedProducts.length === 0">
+    <i class="bi bi-heart"></i>
+    <p>No saved items yet</p>
+    <span>Browse auctions and save items you love 🤍</span>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="products-grid" *ngIf="savedProducts.length > 0">
+
+    <div class="product-card" *ngFor="let product of savedProducts">
+
+      <div class="image-wrapper">
+        <img [src]="product.image" alt="product" />
+        <span class="live-badge">LIVE</span>
+      </div>
+
+      <div class="card-body">
+        <h4>{{ product.title }}</h4>
+
+        <div class="price">
+          Current Bid :
+          <strong>${{product.currentBid}}</strong>
+        </div>
+
+        <a
+          class="details-btn"
+          [routerLink]="['/product-details', product.id]"
+        >
+          View Details
+        </a>
+        <button
+        class="remove-btn"
+        (click)="removeFromSaved(product)">
+         <i class="bi bi-trash"></i> Remove
+       </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

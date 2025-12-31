@@ -1,47 +1,67 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SavedService } from '../../services/saved.service';
+import { BidsService } from '../../services/bids.service';
+import { PurchasedService } from '../../services/purchased.service';
 
 @Component({
   selector: 'app-profile',
-  standalone:true,
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
- user = {
-    name: "Rag Raid",
-    email: "raghadr@gmail.com"
-  };
+export class ProfileComponent implements OnInit {
 
-  activeBids = [
-    {
-      title: "Vintage Rolex Submariner",
-      price: 44500,
-      status: "Winning",
-      timeLeft: "2h 51m",
-      action: "View Item"
-    },
-    {
-      title: "Diamond Engagement Ring",
-      price: 8500,
-      status: "Outbid",
-      timeLeft: "2h 51m",
-      action: "Increase Bid"
-    },
-    {
-      title: "Limited Edition Sneakers",
-      price: 1200,
-      status: "Won",
-      timeLeft: "1h 33m",
-      action: "View Order"
-    }
-  ];
+  bidProducts: any[] = [];
+  activeSection: string | null = null;
+  purchasedItems: any[] = [];
+
+  constructor(
+    private savedService: SavedService,
+    private bidsService: BidsService,
+    private purchasedService:PurchasedService
+  ) {}
+
+  user = {
+    name: 'Rag Raid',
+    email: 'raghadr@gmail.com'
+  };
 
   stats = {
-    active: 3,
-    won: 12,
-    saved: 2
+    won: 12
   };
 
+  ngOnInit(): void {
+    this.loadBids(); 
+    this.loadPurchased();
+  }
+  /* Open/close page sections With Products I Bid On always reloaded*/
+  toggle(section: string) {
+    this.activeSection =
+      this.activeSection === section ? null : section;
+
+    if (section === 'bids') {
+      this.loadBids(); 
+    }
+  }
+
+  /* Replay bids from LocalStorage With a new reference created to force Angular to update */
+  loadBids() {
+    this.bidProducts = [...this.bidsService.getBids()];
+  }
+
+  /* The number of products that the user has bid on */
+  get activeBidsCount() {
+    return this.bidProducts.length;
+  }
+
+  /* Number of saved products*/
+  get savedCount() {
+    return this.savedService.getSavedCount();
+  }
+  loadPurchased(){
+    this.purchasedItems = this.purchasedService.getPurchased();
+  }
 }

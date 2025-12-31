@@ -15,9 +15,55 @@
       <i class="bi bi-tag"></i> My Bids
     </div>
 
-    <div class="menu-item">
-      <i class="bi bi-heart"></i> Saved Items
+    <div class="menu-item" (click)="toggle('bids')">
+    <i class="bi bi-hammer"></i> Products I Bid On
+  </div>
+
+   <!-- Accordion Content -->
+  <div class="accordion-content" *ngIf="activeSection === 'bids'">
+
+    <div *ngIf="bidProducts.length === 0" class="empty">
+      No bids yet 🔨
     </div>
+
+    <div class="mini-card" *ngFor="let product of bidProducts">
+      <img [src]="product.image" />
+
+      <div >
+        <h5>{{ product.title }}</h5>
+        <p>Current Bid: ${{ product.totalAfterBid  }}</p>
+      </div>
+      <a  class="view-btn" [routerLink]="['/product-details', product.id]">
+        View
+      </a>
+    </div>
+
+  </div>
+    <div class="menu-item" routerLink="/saved-items">
+      <i class="bi bi-heart" ></i> Saved Items
+    </div>
+
+    <div class="menu-item" (click)="toggle('purchased')">
+      <i class="bi bi-bag-check"></i> Purchased items
+    </div>
+    <div class="accordion-content" *ngIf="activeSection === 'purchased'">
+
+  <div *ngIf="purchasedItems.length === 0" class="empty">
+    No Purchased Yet 🛒
+  </div>
+
+  <div class="mini-card" *ngFor="let item of purchasedItems">
+    <img [src]="item.image" />
+
+    <div>
+      <h5>{{ item.title }}</h5>
+      <p>Paid: ${{ item.finalPrice }}</p>
+    </div>
+    <a  class="view-btn" [routerLink]="['/product-details', item.id]">
+        View
+      </a>
+  </div>
+</div>
 
     <div class="menu-item">
       <i class="bi bi-trophy"></i> Won Items
@@ -35,43 +81,12 @@
       <i class="bi bi-box-arrow-right"></i> Sign Out
     </div>
   </div>
-
-  <!-- Active Bids Section -->
-  <h3 class="section-title">My Active Bids</h3>
-
-  <div class="active-bids">
-
-    <div class="bid-card" *ngFor="let bid of activeBids">
-      <div class="left">
-        <h4>{{ bid.title }}</h4>
-        <div class="price">${{ bid.price }}</div>
-        <span class="badge" [ngClass]="bid.status.toLowerCase()">{{ bid.status }}</span>
-      </div>
-
-      <div class="right">
-        <div class="time-label">Time Left</div>
-        <div class="time">{{ bid.timeLeft }}</div>
-
-        <button 
-          class="btn-action"
-          [ngClass]="{
-            'view': bid.action === 'View Item',
-            'increase': bid.action === 'Increase Bid',
-            'order':bid.action ==='View Order'
-          }"
-        >
-          {{ bid.action }}
-        </button>
-      </div>
-    </div>
-
-  </div>
-
+  
   <!-- Stats Section -->
   <div class="stats">
 
     <div class="stat-box">
-      <h1>{{ stats.active }}</h1>
+      <h1>{{ activeBidsCount  }}</h1>
       <p>Active Bids</p>
       <span class="sub">Currently bidding</span>
     </div>
@@ -83,7 +98,7 @@
     </div>
 
     <div class="stat-box">
-      <h1>{{ stats.saved }}</h1>
+      <h1>{{ savedCount  }}</h1>
       <p>Saved Items</p>
       <span class="sub">In wishlist</span>
     </div>

@@ -35,6 +35,7 @@
 .menu-item {
   background: #2a1550;
   padding: 14px;
+  margin-top: 15px;
   border-radius: 8px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -48,7 +49,6 @@
     background: linear-gradient(90deg, #b06cff, #ff79b0);
 
 }
-
 
 /* Active Bids */
 .section-title {
@@ -130,7 +130,6 @@
 .btn-action.order {
   background: #8a3cff;
 }
-/* Stats */
 .stats {
   margin-top: 40px;
   display: grid;
@@ -153,4 +152,60 @@
 .stat-box .sub {
   font-size: 13px;
   opacity: 0.6;
+}
+
+.accordion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mini-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #2a134d;
+  padding: 14px 18px;
+  border-radius: 12px;
+  
+}
+
+.mini-card img {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.mini-card .info {
+  flex: 1;
+  margin-left: 14px;
+}
+
+.mini-card h5 {
+  margin: 0;
+  font-size: 15px;
+  color: #fff;
+}
+
+.mini-card p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #cfc3ff;
+}
+
+.view-btn {
+  padding: 6px 18px;
+  border: 1px solid #ff9800;
+  color: #ff9800;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #ff9800;
+  color: #1e0039;
 }

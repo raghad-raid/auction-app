@@ -2,18 +2,34 @@
 
   <!-- Breadcrumb -->
   <div class="breadcrumb">
-    Home > Browse > <span>{{ product?.title }}</span>
+    <a routerLink="/" class="breadcrumb-link">Home</a>
+    <span class="separator">></span>
+    <span class="current">{{product?.title}}</span>
   </div>
 
   <!-- Top Section -->
   <div class="top-section">
     <div class="live-tag">Live</div>
     <div class="image-box">
-      <img [src]="product?.image" alt="Product Image" />
+<div class="image-slider">
+  <button class="nav left" (click)="prevImage()">❮</button>
+
+  <img
+    [src]="productImages[currentImageIndex]"
+    alt="Product Image"
+  />
+
+  <button class="nav right" (click)="nextImage()">❯</button>
+</div>
     </div>
     <div class="actions">
-      <button class="btn-heart"><i class="bi bi-heart"></i></button>
-    </div>
+<button class="btn-heart" (click)="toggleLike(product)">
+  <i 
+    class="bi"
+    [ngClass]="isLiked(product) ? 'bi-heart-fill text-danger' : 'bi-heart'">
+  </i>
+</button>    
+ </div>
   </div>
 
   <!-- Product Info -->
@@ -77,10 +93,26 @@
       </div>
     </div>
 
-    <input type="text" class="bid-input" placeholder="Enter bid..." />
+    <input type="number" 
+    class="bid-input" 
+    [(ngModel)]="userBid"
+    min=1
+    step="1"
+    placeholder="Enter bid amount ..." />
 
-    <button class="place-bid-btn">🔨 Place Bid</button>
-    <button class="buy-now-btn">Buy Now: ${{ product?.buyNow }}</button>
+    <!--[disabled] حتي يتعطل الزر بشكل تلقائي عندما يصل للسعر المطلوب -->
+    <button class="place-bid-btn" (click)="placeBid()"
+     [disabled]="toNumber(product?.currentBid) >= toNumber(product?.buyNow)">
+     🔨 Place Bid</button>
+
+     <p
+  style="color:#ffb3b3; margin-top:10px; font-weight:600"
+  *ngIf="toNumber(product?.currentBid) >= toNumber(product?.buyNow)"
+>
+  Buy Now price reached. Bidding is closed.
+</p>
+
+    <button class="buy-now-btn" (click)="buyNow()">Buy Now: ${{ product?.buyNow }}</button>
 
     <div class="features">
       <p>🛡️ Buyer Protection Guarantee</p>

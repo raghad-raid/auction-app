@@ -19,17 +19,23 @@
 
 /* Categories */
 .cat-btn {
-  padding: 6px 18px;
-  border-radius: 20px;
-  background: #3b1a57;
-  color: white;
-  border: 1px solid #673089;
+  padding: 8px 16px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: none;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .cat-btn:hover {
-  background: #8e2de2;
+  background: rgba(255,255,255,0.3);
+}
+
+.cat-btn.active {
+  background: #ffffff;
+  color: #6a1b9a;
+  font-weight: 600;
 }
 
 /* Icons */
@@ -61,9 +67,34 @@
 .image-box,
 .card-top {                   
   position: relative;
-  height: 240px;        
+  height: 200px;        
   overflow: hidden;
   border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.breadcrumb {
+  padding-top: 0px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #ddd;
+}
+
+.breadcrumb-link {
+  color: #cfa8ff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.breadcrumb-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.separator {
+  opacity: 0.6;
 }
 
 .item-img,
@@ -73,6 +104,7 @@
   object-fit: cover;
   display: block;
   cursor: pointer;
+  background-color: #2b1246; 
 }
 
 /* Live badge */
@@ -107,14 +139,14 @@
 
 /* Body */
 .card-body {
-  padding: 20px;
+  padding: 16px;
 }
 
 .item-title,
 .card-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
 .info-row,
@@ -126,10 +158,9 @@
 
 .price {
   color: #32ff7e;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
-
 
 /* place bid button */
 .place-bid-btn {
@@ -141,3 +172,8 @@
   font-weight: 700;
 }
 
+.auctions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 24px;
+}

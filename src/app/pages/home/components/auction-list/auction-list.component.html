@@ -9,7 +9,10 @@
     <img [src]="item.image" alt="{{ item.title }}" class="card-img" (click)="goToDetails(item)" />
 
     <div class="card-top-right">
-      <button class="btn-heart"><i class="bi bi-heart"></i></button>
+     <button class="btn-heart" (click)="toggleLike(item)">
+    <i class="bi"
+    [ngClass]="isLiked(item) ? 'bi-heart-fill text-danger' : 'bi-heart'"></i>
+     </button>
     </div>
 
     <span class="badge-live">Live</span>

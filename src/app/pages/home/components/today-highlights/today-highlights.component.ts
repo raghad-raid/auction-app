@@ -35,18 +35,17 @@ export class TodayHighlightsComponent implements OnInit{
     if (saved) {
       const parsed = JSON.parse(saved);
 
-      // إذا النتائج هي نتائج اليوم → استخدمها
+   //If the results are today's results → use them
       if (parsed.date === today) {
         this.todayAuctions = parsed.data;
         return;
       }
     }
 
-    // اختيار 4-5 منتجات عشوائية
+    // Choose 4-5 random products
     const shuffled = [...this.items].sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, 4);
 
-    // حفظها لليوم
     localStorage.setItem("today_highlights", JSON.stringify({
       date: today,
       data: selected
