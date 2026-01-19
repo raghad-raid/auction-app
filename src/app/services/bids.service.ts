@@ -7,38 +7,33 @@ export class BidsService {
 
   constructor() {}
 
-  addBid(product: any, bidAmount: number) {
-
-    product.currentBid = Number(product.currentBid) || 0;
-    bidAmount = Number(bidAmount);
-
-    product.currentBid += bidAmount;
-
-    const bidItems = this.getBids();
-    const exists = bidItems.find( (p: { id: any; }) => p.id === product.id);
-
-    if (!exists) {
-      bidItems.push({
-        id: product.id,
-        title: product.title,
-        image: product.image,
-        myBid: bidAmount,
-        totalAfterBid: product.currentBid,
-        bidDate: new Date()
-      });
-    } else {
-      exists.myBid += bidAmount;
-      exists.totalAfterBid = product.currentBid; 
-      exists.bidDate = new Date();
-    }
-
-    localStorage.setItem('bidItems', JSON.stringify(bidItems));
-
-    const currentBids = JSON.parse(localStorage.getItem('currentBids') || '{}');
-    currentBids[product.id] = product.currentBid;
-    localStorage.setItem('currentBids', JSON.stringify(currentBids));
+ addBid(product: any, bidAmount: number) {
+  const bidItems = this.getBids();
+  const exists = bidItems.find((p: any) => p.id === product.id);
+  
+  if (!exists) {
+    bidItems.push({
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      myBid: bidAmount,
+      bidDate: new Date()
+    });
+  } else {
+    exists.myBid = bidAmount;
+    exists.bidDate = new Date();
   }
 
+  localStorage.setItem('bidItems', JSON.stringify(bidItems));
+
+  const products = JSON.parse(localStorage.getItem('products') || '[]');
+  const pro = products.find((p: any) => p.id === product.id);
+
+  if (pro) {
+    pro.currentBid = bidAmount;
+    localStorage.setItem('products', JSON.stringify(products));
+  }
+}
   getBids() {
     return JSON.parse(localStorage.getItem('bidItems') || '[]');
   }

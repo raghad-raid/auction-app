@@ -5,6 +5,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { SavedItemsComponent } from './pages/saved-items/saved-items.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent},
   { path:'product-details/:id', component:ProductDetailsComponent},
-  { path:'saved-items', component:SavedItemsComponent}
+  { path:'saved-items', component:SavedItemsComponent},
+  { path:'add-product', component:AddProductComponent}
 ];

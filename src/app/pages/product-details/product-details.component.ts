@@ -33,32 +33,27 @@ ngOnInit(): void {
     const id = Number(params.get('id'));
     this.product = this.auctionService.getProductById(id);
 
-    if (this.product) {
-      this.product.currentBid = Number(this.product.currentBid) || 0;
-      this.product.startingBid = Number(this.product.startingBid) || 0;
+    if (!this.product) return;
 
-      //Load currentBid from LocalStorage
-      const currentBids = JSON.parse(localStorage.getItem('currentBids') || '{}');
-      if (currentBids[this.product.id] !== undefined) {
-        this.product.currentBid = Number(currentBids[this.product.id]);
-      }
+    this.product.startingBid = Number(this.product.startingBid) || 0;
 
-      // Load bids from LocalStorage
-const storedBids = JSON.parse(localStorage.getItem('productBids') || '{}');
-if (storedBids[this.product.id] !== undefined) {
-  this.product.bids = storedBids[this.product.id];
-} else {
-  this.product.bids = Number(this.product.bids) || 0;
-}
-    }
+    // currentBid ONLY from localStorage
+    const currentBids = JSON.parse(localStorage.getItem('currentBids') || '{}');
+  
 
-    // تجهيز الصور (multiple images or fallback)
-   this.productImages = this.product.images?.length
-     ? this.product.images
-     : [this.product.image];
-      this.currentImageIndex = 0;
+    // bids count
+    const storedBids = JSON.parse(localStorage.getItem('productBids') || '{}');
+    this.product.bids =
+      storedBids[this.product.id] !== undefined
+        ? storedBids[this.product.id]
+        : 0;
+
+    this.productImages = this.product.images?.length
+      ? this.product.images
+      : [this.product.image];
   });
 }
+
   toggleLike(product: any) {
     this.savedService.toggleSave(product);
   }
@@ -72,32 +67,47 @@ if (storedBids[this.product.id] !== undefined) {
   if (!this.userBid || this.userBid <= 0) return;
 
   const bidAmount = Number(this.userBid);
+  const startingBid = Number(this.product.startingBid);
   const buyNowPrice = this.toNumber(this.product.buyNow);
+
+  const currentBids = JSON.parse(localStorage.getItem('currentBids') || '{}');
+  const currentBid = currentBids[this.product.id] || 0;
+
+  const minAllowedBid =
+    currentBid > 0 ? currentBid + 1 : startingBid;
+
+  if (bidAmount < minAllowedBid) {
+    alert(`❌ Minimum allowed bid is ${minAllowedBid}`);
+    return;
+  }
 
   if (bidAmount >= buyNowPrice) {
     alert('❌ Bid must be lower than Buy Now price');
     return;
   }
 
-  // Save the product under Products I Bid On
-  this.bidsService.addBid(this.product, bidAmount);
+  currentBids[this.product.id] = bidAmount;
+  localStorage.setItem('currentBids', JSON.stringify(currentBids));
+  this.product.currentBid = bidAmount;
 
-  // Increase the number of bids
-  this.product.bids += 1;
-
-  // Save the number in LocalStorage
   const storedBids = JSON.parse(localStorage.getItem('productBids') || '{}');
-  storedBids[this.product.id] = this.product.bids;
+  storedBids[this.product.id] = (storedBids[this.product.id] || 0) + 1;
   localStorage.setItem('productBids', JSON.stringify(storedBids));
+  this.product.bids = storedBids[this.product.id];
 
-  // Reset field
+  this.bidsService.addBid(
+    { ...this.product }, // 
+    bidAmount
+  );
+
   this.userBid = 0;
 }
+
 nextImage() {
   if (this.currentImageIndex < this.productImages.length - 1) {
     this.currentImageIndex++;
   } else {
-    this.currentImageIndex = 0; // It goes back to the beginning
+    this.currentImageIndex = 0; 
   }
 }
 
@@ -105,7 +115,7 @@ prevImage() {
   if (this.currentImageIndex > 0) {
     this.currentImageIndex--;
   } else {
-    this.currentImageIndex = this.productImages.length - 1; // It goes to the end
+    this.currentImageIndex = this.productImages.length - 1; 
   }
 }
 

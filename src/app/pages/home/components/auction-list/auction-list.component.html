@@ -1,41 +1,42 @@
-<!-- Auction Cards wrapper -->
 <div class="auction-section">
-<div class="container mt-4">
-  <div class="auction-cards">
+  <div class="container">
+    <div class="auction-cards">
 
-    <div class="auction-card" *ngFor="let item of items">
-  
-  <div class="card-top">
-    <img [src]="item.image" alt="{{ item.title }}" class="card-img" (click)="goToDetails(item)" />
+      <div class="auction-card" *ngFor="let item of items">
 
-    <div class="card-top-right">
-     <button class="btn-heart" (click)="toggleLike(item)">
-    <i class="bi"
-    [ngClass]="isLiked(item) ? 'bi-heart-fill text-danger' : 'bi-heart'"></i>
-     </button>
-    </div>
+        <div class="card-image" (click)="goToDetails(item)">
+          <img [src]="item.image" alt="{{ item.title }}" />
 
-    <span class="badge-live">Live</span>
-  </div>
+          <span class="badge-live">LIVE</span>
 
-  <div class="card-body">
-    <h5 class="card-title">{{ item.title }}</h5>
+          <button class="btn-heart" (click)="toggleLike(item)">
+            <i class="bi"
+               [ngClass]="isLiked(item) ? 'bi-heart-fill' : 'bi-heart'"></i>
+          </button>
+        </div>
 
-    <div class="card-row">
-      <div>
-        <div class="muted small">Current Bid</div>
-        <div class="price">{{ item.price }}</div>
-      </div>
-      <div class="text-end">
-            <div class="muted small">Time Left</div>
-            <div class="time-left">{{item.timeLeft}}</div>
+        <div class="card-content">
+          <h5>{{ item.title }}</h5>
+
+          <div class="info-row">
+            <div>
+              <span class="label">Current Bid</span>
+              <span class="price">{{ item.price }}</span>
+            </div>
+
+            <div class="time">
+              <span class="label">Ends In</span>
+              <span class="time-left">{{ item.timeLeft }}</span>
+            </div>
           </div>
-    </div>
-    <div class="d-grid">
-      <button class="btn place-bid-btn" (click)="goToDetails(item)">View & Bid</button>
-    </div>
-  </div>
 
+          <button class="bid-btn" (click)="goToDetails(item)">
+            View Auction
+          </button>
+        </div>
+
+      </div>
+
+    </div>
   </div>
-</div>
 </div>

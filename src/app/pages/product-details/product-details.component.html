@@ -1,13 +1,11 @@
 <div class="product-details-container">
 
-  <!-- Breadcrumb -->
   <div class="breadcrumb">
     <a routerLink="/" class="breadcrumb-link">Home</a>
     <span class="separator">></span>
     <span class="current">{{product?.title}}</span>
   </div>
 
-  <!-- Top Section -->
   <div class="top-section">
     <div class="live-tag">Live</div>
     <div class="image-box">
@@ -32,7 +30,6 @@
  </div>
   </div>
 
-  <!-- Product Info -->
   <div class="info-section card">
     <h1>{{ product?.title }}</h1>
 
@@ -79,7 +76,7 @@
     <div class="price-box">
       <div class="price-row">
         <span>Current Bid</span>
-        <span class="price green">${{ product?.currentBid }}</span>
+        <span class="price green">$ {{product.currentBid}} </span>
       </div>
 
       <div class="price-row">
@@ -96,9 +93,9 @@
     <input type="number" 
     class="bid-input" 
     [(ngModel)]="userBid"
-    min=1
+    min="product?.startingBid"
     step="1"
-    placeholder="Enter bid amount ..." />
+    placeholder="Enter bid amount (mini is {{product?.startingBid}})" />
 
     <!--[disabled] حتي يتعطل الزر بشكل تلقائي عندما يصل للسعر المطلوب -->
     <button class="place-bid-btn" (click)="placeBid()"

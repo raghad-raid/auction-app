@@ -4,21 +4,18 @@
     <i class="bi bi-heart-fill"></i> Saved Items
   </h2>
 
-  <!-- Empty State -->
   <div class="empty-state" *ngIf="savedProducts.length === 0">
     <i class="bi bi-heart"></i>
     <p>No saved items yet</p>
     <span>Browse auctions and save items you love 🤍</span>
   </div>
 
-  <!-- Products Grid -->
   <div class="products-grid" *ngIf="savedProducts.length > 0">
 
     <div class="product-card" *ngFor="let product of savedProducts">
 
       <div class="image-wrapper">
         <img [src]="product.image" alt="product" />
-        <span class="live-badge">LIVE</span>
       </div>
 
       <div class="card-body">

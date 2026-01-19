@@ -17,7 +17,6 @@
 }
 
 
-/* Categories */
 .cat-btn {
   padding: 8px 16px;
   border-radius: 25px;
@@ -38,7 +37,6 @@
   font-weight: 600;
 }
 
-/* Icons */
 .icon-btn {
   background: #3b1a57;
   border: 1px solid #673089;
@@ -63,7 +61,6 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Image section */
 .image-box,
 .card-top {                   
   position: relative;
@@ -107,7 +104,6 @@
   background-color: #2b1246; 
 }
 
-/* Live badge */
 .tag,
 .badge-live {
   position: absolute;
@@ -121,7 +117,6 @@
   z-index: 2;
 }
 
-/* Heart icon */
 .btn-heart {
   position: absolute;
   right: 15px;
@@ -137,7 +132,6 @@
   cursor: pointer;
 }
 
-/* Body */
 .card-body {
   padding: 16px;
 }
@@ -162,7 +156,6 @@
   font-weight: bold;
 }
 
-/* place bid button */
 .place-bid-btn {
   background: linear-gradient(90deg,#b06cff,#ff79b1);
   color: #fff;

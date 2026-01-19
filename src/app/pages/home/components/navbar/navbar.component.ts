@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+[x: string]: any;
 searchTerm = '';
+isLoggedIn: boolean = true;
 
   allItems = [
     { id: 1, title: 'Luxury Car' },

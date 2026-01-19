@@ -1,6 +1,5 @@
 <div class="profile-container">
 
-  <!-- Profile Header -->
   <div class="profile-header">
     <div class="avatar">
       <i class="bi bi-person"></i>
@@ -9,21 +8,49 @@
     <p class="email">{{ user.email }}</p>
   </div>
 
-  <!-- Accordion Menu -->
   <div class="menu-section">
-    <div class="menu-item active">
-      <i class="bi bi-tag"></i> My Bids
+    <div class="menu-item" (click)="toggle('products')">
+      <i class="bi bi-tag"></i> My Products
     </div>
+<div class="accordion-content" *ngIf="activeSection === 'products'">
+
+  <div *ngIf="myProducts.length === 0" class="empty">
+    You haven't added any products yet !
+  </div>
+
+  <div class="mini-card" *ngFor="let product of myProducts">
+    <img [src]="product.image" />
+
+    <div>
+      <h5>{{ product.title }}</h5>
+      <p>Starting Bid: ${{ product.startingBid }}</p>
+    </div>
+    <div class="actions">
+
+    <a class="view-btn"
+       [routerLink]="['/product-details', product.id]">
+      View
+    </a>
+    <button
+        class="delete-btn"
+        (click)="deleteProduct(product.id)">
+         <i class="bi bi-trash"></i> 
+    </button>
+
+       </div>
+  </div>
+
+</div>
+
 
     <div class="menu-item" (click)="toggle('bids')">
     <i class="bi bi-hammer"></i> Products I Bid On
-  </div>
+    </div>
 
-   <!-- Accordion Content -->
   <div class="accordion-content" *ngIf="activeSection === 'bids'">
 
     <div *ngIf="bidProducts.length === 0" class="empty">
-      No bids yet 🔨
+      No bids yet !
     </div>
 
     <div class="mini-card" *ngFor="let product of bidProducts">
@@ -31,7 +58,7 @@
 
       <div >
         <h5>{{ product.title }}</h5>
-        <p>Current Bid: ${{ product.totalAfterBid  }}</p>
+        <p>Current Bid: ${{ product.currentBid   }}</p>
       </div>
       <a  class="view-btn" [routerLink]="['/product-details', product.id]">
         View
@@ -49,7 +76,7 @@
     <div class="accordion-content" *ngIf="activeSection === 'purchased'">
 
   <div *ngIf="purchasedItems.length === 0" class="empty">
-    No Purchased Yet 🛒
+    No Purchased Yet !
   </div>
 
   <div class="mini-card" *ngFor="let item of purchasedItems">
@@ -82,7 +109,6 @@
     </div>
   </div>
   
-  <!-- Stats Section -->
   <div class="stats">
 
     <div class="stat-box">

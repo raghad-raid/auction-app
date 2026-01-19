@@ -19,6 +19,7 @@ export class LiveAuctionsComponent implements OnInit{
  this.allItems=this.auctionService.getLiveAndHighlights();
  this.items=this.allItems;
  this.selectedCategory='All';
+ 
   }
 
  constructor(private router: Router,

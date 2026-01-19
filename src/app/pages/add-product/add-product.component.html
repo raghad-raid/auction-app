@@ -1,0 +1,123 @@
+<div class="add-product-page">
+  <div class="add-product-card">
+
+    <h2 class="page-title">
+      <i class="bi bi-plus-circle"></i>
+      Add New Product
+    </h2>
+
+    <div *ngIf="success" class="success-toast">
+      <i class="bi bi-check-circle-fill"></i>
+       Product added successfully!
+    </div>
+
+    <form #f="ngForm" (ngSubmit)="addProduct(f)">
+
+      <div class="form-section">
+        <h5><i class="bi bi-box"></i> Product Information</h5>
+
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          ngModel
+          required
+          placeholder="Product title" />
+
+        <textarea
+          class="form-control"
+          name="description"
+          ngModel
+          required
+          rows="3"
+          placeholder="Product description"></textarea>
+      </div>
+
+      <div class="form-section">
+        <h5><i class="bi bi-cash-stack"></i> Pricing</h5>
+
+        <div class="grid-2">
+          <input
+            type="number"
+            class="form-control"
+            name="startingBid"
+            ngModel
+            required
+            step="1"
+            placeholder="Starting bid" />
+
+          <input
+            type="number"
+            class="form-control"
+            name="buyNow"
+            ngModel
+            required
+            placeholder="Buy now price" />
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h5><i class="bi bi-info-circle"></i> Details</h5>
+
+        <div class="grid-3">
+          <select class="form-select" name="category" ngModel required>
+            <option value="">Category</option>
+            <option>Watches</option>
+            <option>Vehicles</option>
+            <option>Electronic</option>
+            <option>Art</option>
+          </select>
+
+          <select class="form-select" name="condition" ngModel required>
+            <option value="">Condition</option>
+            <option>New</option>
+            <option>Used</option>
+            <option>Excellent</option>
+          </select>
+
+          <input
+            type="text"
+            class="form-control"
+            name="location"
+            ngModel
+            required
+            placeholder="Location" />
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h5><i class="bi bi-images"></i> Product Images</h5>
+
+        <label class="upload-box">
+          <input
+            type="file"
+            multiple
+            hidden
+            (change)="onImageChange($event)" />
+          <i class="bi bi-cloud-upload"></i>
+          <span>Click to upload images</span>
+        </label>
+
+        <div class="image-preview" *ngIf="images.length">
+          <img *ngFor="let img of images" [src]="img" />
+        </div>
+      </div>
+
+      <button
+        class="submit-btn"
+        type="submit"
+        [disabled]="f.invalid || loading ">
+
+        <span *ngIf="!loading">
+          <i class="bi bi-check-lg"> Add Product</i>
+        </span>
+
+        <span *ngIf="loading">
+          <span class="spinner-border spinner-border-sm"></span>
+          Adding...
+        </span>
+      </button>
+
+    </form>
+  </div>
+</div>

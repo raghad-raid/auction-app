@@ -1,134 +1,134 @@
-/* background of page assumed already purple gradient */
-
-/* container spacing */
 .auction-section {
-  background: linear-gradient(135deg, #701e83, #301d56);
-  padding: 50px 0;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #1b0c36, #301d56);
 }
 
-.auction-cards { display: grid; gap: 20px; }
+.auction-cards {
+  display: grid;
+  gap: 24px;
+}
 
-/* card */
 .auction-card {
-  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.2));
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 2px 0 rgba(255,255,255,0.02) inset, 0 6px 18px rgba(0,0,0,0.4);
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.15));
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
 }
 
-/* top area with image */
-.card-top { position: relative; height: 300px; background: linear-gradient(180deg,#3a1a4a,#2a1136); }
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.auction-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+
+.card-image {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
   cursor: pointer;
 }
 
-/* right top controls */
-.card-top-right {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.bids-count {
-  font-size: 12px;
-  color: #ddd;
-  opacity: 0.9;
-}
-.btn-heart {
-  background: rgba(0,0,0,0.25);
-  border: none;
-  color: #fff;
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-/* live badge */
+.auction-card:hover img {
+  transform: scale(1.06);
+}
+
 .badge-live {
   position: absolute;
-  left: 12px;
-  bottom: 8px;
-  background: #ff6b6b;
+  bottom: 14px;
+  left: 14px;
+  background: linear-gradient(90deg, #ff4d6d, #ff8fa3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
   color: white;
-  padding: 6px 10px;
-  border-radius: 14px;
-  font-weight: 700;
-  font-size: 15px;
 }
 
-/* body */
-.card-body {
-  padding: 16px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.1));
+.btn-heart {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
 }
-.card-title {
-  margin: 0 0 8px 0;
-  color: #e9e9ef;
-  font-weight: 700;
+
+.btn-heart:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.btn-heart i.bi-heart-fill {
+  color: #ff4d6d;
+}
+
+.card-content {
+  padding: 18px;
+}
+
+.card-content h5 {
+  margin: 0 0 14px;
   font-size: 16px;
+  font-weight: 700;
+  color: #fff;
 }
-.muted { color: rgba(255,255,255,0.6); }
-.small { font-size: 12px; }
 
-.card-row {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
 }
 
 .price {
-  color: #32ff7e;
+  font-size: 18px;
   font-weight: 700;
-  margin-top: 6px;
-}
-.time-left { color: #dcd6ff; font-weight:600; }
-
-/* progress */
-.progress-wrap { padding: 0 4px; }
-.progress {
-  height: 14px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.progress-bar {
-  height:100%;
-  background: linear-gradient(90deg,#b06cff,#ff79b1);
-  width: 40%;
-  transition: width 0.5s ease;
+  color: #3cff8f;
 }
 
-.place-bid-btn {
-  background: linear-gradient(90deg,#b06cff,#ff79b1);
-  color: #fff;
+.time-left {
+  font-size: 14px;
+  font-weight: 600;
+  color: #dcd6ff;
+}
+
+.bid-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
   border: none;
-  margin-top: 20px;
-  padding: 10px 16px;
-  border-radius: 10px;
+  background: linear-gradient(90deg, #b06cff, #ff79b1);
+  color: white;
   font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: 0.3s;
 }
-.place-bid-btn:hover { transform: translateY(-1px); }
 
-/* responsive: stack as in image (single column) but keeps spacing */
-@media(min-width: 992px) {
+.bid-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(176,108,255,0.4);
+}
+
+@media (min-width: 992px) {
   .auction-cards {
-    grid-template-columns: 1fr; /* keep one column like screenshot; change to 1fr 1fr for grid */
-    max-width: 100%;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-
-/* small tweaks */
-.auction-card + .auction-card { margin-top: 18px; }
-

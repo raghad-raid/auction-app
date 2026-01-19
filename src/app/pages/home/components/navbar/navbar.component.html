@@ -1,60 +1,73 @@
-<nav class="navbar navbar-expand-lg custom-navbar px-4 py-1">
+<nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
-<a class="navbar-brand d-flex align-items-center" href="#">
-      <!-- Logo image -->
-      <img src="/Bonanza-logo-transparent9.png"
-       alt="Bonanza Logo" 
-       style="height: 50px; width: auto; filter: brightness(0) invert(1);
-" 
-       class="align-middle" />
-      <!-- Site name -->
-      <span class="text-white fw-bold fs-3">Bonanza</span>
+
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <img
+        src="/Bonanza-logo-transparent9.png"
+        alt="Bonanza Logo"
+        class="logo-img" />
+      <span class="brand-text">Bonanza</span>
     </a>
+
     <button
-      class="navbar-toggler bg-light"
+      class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-    >
+      data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="search-box d-flex align-items-center ">
+    <div class="search-wrapper position-relative mx-auto">
+      <i class="bi bi-search search-icon"></i>
+
       <input
         type="text"
         [(ngModel)]="searchTerm"
-        placeholder="Search for auctions, items, or categories..."
         (input)="onSearchChange()"
-        class="form-control me-2"
-      />
+        placeholder="Search auctions, items or categories"
+        class="search-input" />
 
-       <!-- Dropdown suggestions -->
-  <ul *ngIf="showDropdown" class="search-dropdown">
-    <li *ngFor="let item of filteredItems" (click)="goToItem(item)" >
-      {{ item.title }}
-    </li>
-  </ul>
+      <ul *ngIf="showDropdown" class="search-dropdown">
+        <li
+          *ngFor="let item of filteredItems"
+          (click)="goToItem(item)">
+          {{ item.title }}
+        </li>
+      </ul>
     </div>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center gap-4">
-        <!-- Bell icon-->
-        <li class="nav-item d-flex align-items-center">
-          <i class="bi bi-bell-fill text-white fs-5"></i>
-        </li>
+      <ul class="navbar-nav align-items-center gap-3">
 
-        <!-- Sign In with a person icon-->
-        <li class="nav-item d-flex align-items-center gap-1">
-          <i class="bi bi-person-fill text-white fs-5"></i>
-          <a routerLink="/profile" class="nav-link text-white fw-semi" href="#">Account</a>
+        <li class="nav-item">
+          <div class="icon-circle">
+            <i class="bi bi-bell-fill"></i>
+          </div>
         </li>
 
         <li class="nav-item">
-          <a routerLink="/register" class="btn btn-outline-light btn-register fw-bold px-4 py-2">Register</a>
+          <a routerLink="/profile" class="account-link">
+            <div class="icon-circle">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <span>Account</span>
+          </a>
         </li>
+
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a routerLink="/add-product" class="btn add-btn">
+            <i class="bi bi-plus-lg"></i>
+            Add Product
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/register" class="btn btn-outline-light btn-register">
+            Register
+          </a>
+        </li>
+
       </ul>
-    </div> 
+    </div>
   </div>
 </nav>
-
-

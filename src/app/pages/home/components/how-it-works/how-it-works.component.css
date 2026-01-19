@@ -3,7 +3,6 @@
   color: white;
 }
 
-/* Main title */
 .section-title {
   font-size: 30px;
   font-weight: 700;
@@ -14,7 +13,6 @@
   opacity: 0.8;
 }
 
-/* Step Icons */
 .step-icon {
   width: 60px;
   height: 60px;
@@ -27,7 +25,6 @@
   color: white;
 }
 
-/* Unique colors */
 .step1 {
   background: #e05dd3;
 }
@@ -50,7 +47,6 @@
   opacity: 0.8;
 }
 
-/* Feature cards */
 .features-wrapper {
   display: flex;
   flex-direction: column;
@@ -84,63 +80,84 @@
 
 
 
-.subscribe-section {
-  background: rgba(0, 0, 0, 0); 
+.cta-section {
+  padding: 70px 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.subscribe-box {
-  background: linear-gradient(90deg, #8e2de2, #d53a9d);
-  border-radius: 25px;
+.cta-box {
   max-width: 1100px;
-  margin: auto;
-  color: white;
+  width: 100%;
+  padding: 60px 40px;
+  border-radius: 26px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #6a00ff, #ff4ecd);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
-.subscribe-title {
-  font-size: 32px;
-  font-weight: 700;
+.cta-box h2 {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 14px;
 }
 
-.subscribe-text {
+.cta-box p {
+  font-size: 16px;
+  opacity: 0.95;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.cta-primary {
+  background: #ffffff;
+  color: #6a00ff;
+  border: none;
+  padding: 14px 32px;
   font-size: 15px;
-  opacity: 0.9;
-}
-
-.subscribe-input {
-  width: 350px;
-  border-radius: 50px;
-  padding: 12px 20px;
-  border: none;
-  outline: none;
-}
-
-.subscribe-btn {
-  background: white;
-  color: #8e2de2;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 50px;
-  font-weight: 600;
+  font-weight: 700;
+  border-radius: 40px;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: 0.25s ease;
 }
 
-.subscribe-btn:hover {
-  opacity: 0.85;
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Mobile responsive */
+.cta-secondary {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: white;
+  padding: 14px 30px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .subscribe-form {
-    flex-direction: column;
-    gap: 15px;
+  .cta-box {
+    padding: 40px 25px;
   }
 
-  .subscribe-input {
-    width: 100%;
-  }
-
-  .subscribe-btn {
-    width: 100%;
+  .cta-box h2 {
+    font-size: 26px;
   }
 }
+
